@@ -1,0 +1,32 @@
+@media only screen and (max-width: 400px) {
+    .mobile{
+        
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 1rem;
+        
+    }
+    .mobile img{
+        background-color:#cfcfcf;
+        border-radius: 50px;
+        box-shadow: 0 2px orange;
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 1rem;
+    }
+
+    .mobile img:hover {background-color:yellow}
+
+    .mobile img:active {
+    background-color: yellow;
+    box-shadow: 0 5px #666;
+    transform: translateY(6px);
+    }
+}
+@media only screen and (min-width: 500px) {
+    .mobile{
+        display:none;
+    }
+}
+
+
