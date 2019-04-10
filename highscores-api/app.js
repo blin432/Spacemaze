@@ -22,12 +22,16 @@ app.use(session({ secret: 'mymilkshakebringsalltheboystotheyard' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(express.static(path.join(__dirname, 'client/build', 'index.html')));
+app.use(express.static(path.join(__dirname, 'client/build', 'index.html')));
 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/scores', scoresRouter);
+
+app.get('/*', function (req, res){
+  res.sendFile(path.join(_dirname, 'client/build', 'index.html'));
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
