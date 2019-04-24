@@ -117,22 +117,22 @@ class Field extends Component {
     move({keyCode}){
         switch( keyCode ) {
             case 37:
-                if(this.state.myPosition % 5 === 0){
+                if(this.state.myPosition % 4 === 0){
                     return
                 }
                 this.calculateNewPosition(-1,left);
                 this.setState({...store.getState()})  
                 break;
             case 38:
-                if(this.state.myPosition -5 < 0 ){
+                if(this.state.myPosition -4 < 0 ){
                     return
                 }
-                this.calculateNewPosition(-5,up)
+                this.calculateNewPosition(-4,up)
                 this.setState({...store.getState()})  
                 break;
             case 39:
-                for(let i = this.state.myPosition; i >= 4; i-=5){
-                    if(i === 4 ){ 
+                for(let i = this.state.myPosition; i >= 3; i-=4){
+                    if(i === 3 ){ 
                         return
                     }
                 }
@@ -140,10 +140,10 @@ class Field extends Component {
                 this.setState({...store.getState()})  
                 break;
             case 40:
-                if(this.state.myPosition + 5 > this.state.grid.length){
+                if(this.state.myPosition + 4 > this.state.grid.length){
                     return
                 }
-                this.calculateNewPosition(+5,down)
+                this.calculateNewPosition(+4,down)
                 this.setState({...store.getState()})  
                 break;
             default: 
@@ -167,7 +167,8 @@ class Field extends Component {
                 <Row style={{margin : 0, padding: 0}}>
                     <Col className="justify-content-center mt-3" 
                         sm={12} 
-                        md={{size:3}} 
+                        md={3}
+                        lg={3}
                         style={{ margin : 0, padding: 0}}>
                         <div className="d-none d-md-block" >
                             <h3 className="text-center">Tips</h3>
@@ -176,11 +177,11 @@ class Field extends Component {
                         <Tips/>
 
                         <div className="d-md-none">
-                            {/* <Highscores level={level}/> */}
+                            <Highscores level={level}/>
                         </div>
                     </Col>
 
-                    <Container style={{maxWidth: 400, backgroundColor : 'black'}}>
+                    <Container style={{maxWidth: 340,maxHeight:680, backgroundColor : 'black'}}>
                         <Row>{field}</Row >
                     </Container>
                 
@@ -191,7 +192,7 @@ class Field extends Component {
                     </Col>
                 </Row>
                 <CompleteGameModal show={this.state.modalShow} onHide={modalClose}/>
-            <div className="d-md-none" style={{marginTop : '-800px'}}>
+            <div className="d-md-none" style={{marginTop : '-600px'}}>
                 <MobileButton move={this.move.bind(this)}/>
             </div>
         </Container>

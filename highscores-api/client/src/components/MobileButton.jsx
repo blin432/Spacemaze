@@ -9,7 +9,7 @@ class MobileButton extends Component {
 
 render(){
   return(
-    <div className="mobile" style={{opacity : '0.1'}}>
+    <div className="mobile" style={{opacity : '0.3'}}>
       <Row className="pt-4 d-flex justify-content-center" >
           <img alt="button"
           style={{height:"100px", witdh:"100px"}}

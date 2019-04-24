@@ -32,5 +32,4 @@ class RulesModal extends Component {
       );
     }
   }
-
   export default RulesModal;
